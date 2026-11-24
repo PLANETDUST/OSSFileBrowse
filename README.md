@@ -14,17 +14,26 @@
 > 原版功能全部保留，未启用 STS 时行为与原版一致。
 
 # 更新日志
+
 ## 2026.11.24 v2.1 增强版
 
-1. 支持阿里云 STS 临时凭证。左侧新增「STS 临时凭证」面板，填入三要素即可浏览存储桶；签名改为每次请求按「当前时间 + 目标路径」实时计算，解决翻页、预览、切换对象时的 `SignatureDoesNotMatch`；
+1. 支持阿里云 STS 临时凭证。右侧新增「STS 临时凭证」面板，填入三要素即可浏览存储桶；签名改为每次请求按「当前时间 + 目标路径」实时计算，解决翻页、预览、切换对象时的 `SignatureDoesNotMatch`；
+
+   ![STS 临时凭证面板](./images/sts-panel.png)
 
 2. 支持直接填写服务端点（如 `https://oss-cn-hangzhou.aliyuncs.com/`），工具先调用 ListBuckets 列出该凭证可访问的存储桶，弹窗选择后再进入浏览；
+
+   ![服务端点选择存储桶](./images/list-buckets.png)
 
 3. 修复非 ASCII 对象名（如 `中班-01-语言.pptx`）签名失败的问题：签名使用解码后的原始路径，URL 编码仅用于传输；
 
 4. 「全部下载」支持自选保存目录，完成后弹窗显示文件数量、总大小与保存路径，并可一键打开文件夹；
 
+   ![全部下载选择目录](./images/bulk-download-dir.png)
+
 5. 选中文件下载完成后，同样弹出提示框并可定位到文件所在位置。
+
+   ![下载完成提示](./images/download-done.png)
 
 ## 2026.07.24 v2.0版本
 
@@ -80,7 +89,6 @@
 本项目使用 `JavaFX` 构建图形化界面，采用 `本机 HTTP 代理`、`PDFBox`、`Apache POI`、`Commons Compress`、`Junrar` 和 `JavaCV/FFmpeg` 实现纯客户端文件预览，`kkFileView` 仅作为可选配置。
 
 ![图1](./images/4.png)
-
 
 # 最后
 
